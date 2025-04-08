@@ -62,7 +62,7 @@ class _TabBarExample extends StatelessWidget {
           //   ),
           // ),
           PageHeader(
-            title: 'My App Title, Very long title, lorem ipsum dolor',
+            title: 'My App Title, Very long title, lorem ipsum dolor sit amet, consectetur adipiscing elit',
             bottom: TabBar(tabs: [Tab(text: 'Tab 1'), Tab(text: 'Tab 2'), Tab(text: 'Tab 3')]),
             bottomMode: BottomMode.floating,
           ),

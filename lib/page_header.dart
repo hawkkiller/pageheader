@@ -81,8 +81,6 @@ class __PageHeaderState extends State<_PageHeader> {
 
     final fullHeight = kToolbarHeight + widget.title.preferredSize.height;
 
-    print(widget.title.preferredSize.height);
-
     if (position.pixels < fullHeight) {
       target = position.pixels > (fullHeight / 2) ? fullHeight : 0;
     }
@@ -138,10 +136,7 @@ class __TextPainterSizeState extends State<_TextPainterSize> {
   @override
   void initState() {
     super.initState();
-    _textPainter.text = TextSpan(
-      text: widget.text,
-      style: widget.textStyle,
-    );
+    _textPainter.text = TextSpan(text: widget.text, style: widget.textStyle);
 
     _textPainter.textDirection = widget.textDirection;
     _textPainter.layout(maxWidth: widget.maxWidth);
@@ -201,8 +196,10 @@ class _HeaderDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   bool shouldRebuild(covariant _HeaderDelegate oldDelegate) {
-    print(oldDelegate.title.preferredSize.height);
-    return true;
+    return oldDelegate.collapsedHeight != collapsedHeight ||
+        oldDelegate.title != title ||
+        oldDelegate.bottom != bottom ||
+        oldDelegate.bottomMode != bottomMode;
   }
 
   @override
