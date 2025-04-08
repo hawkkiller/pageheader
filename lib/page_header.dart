@@ -8,7 +8,7 @@ import 'package:flutter/rendering.dart';
 class PageHeader extends StatefulWidget {
   const PageHeader({super.key, required this.title});
 
-  final Widget title;
+  final PreferredSizeWidget title;
 
   @override
   State<PageHeader> createState() => _PageHeaderState();
@@ -55,7 +55,7 @@ class _PageHeaderState extends State<PageHeader> {
       pinned: true,
       delegate: _HeaderDelegate(
         collapsedHeight: kToolbarHeight,
-        title: PreferredSize(preferredSize: Size.fromHeight(52), child: widget.title),
+        title: widget.title,
       ),
     );
   }
@@ -118,6 +118,8 @@ class _HeaderDelegate extends SliverPersistentHeaderDelegate {
                       padding: const EdgeInsets.only(left: 16, right: 16),
                       child: NavigationToolbar(
                         middle: DefaultTextStyle(
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.titleLarge!,
                           child: Opacity(
                             opacity: visibleLargeTitleHeight.clamp(0, 1),

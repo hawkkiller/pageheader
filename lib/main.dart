@@ -24,7 +24,10 @@ class MainApp extends StatelessWidget {
               //   searchField: CupertinoSearchTextField(),
               // ),
               PageHeader(
-                title: Text('My App Title'),
+                title: PreferredSize(
+                  preferredSize: Size.fromHeight(72),
+                  child: Text('My App Title dadsadsadasdasdasdasdasdasdasdadasdadasds'),
+                ),
               ),
               SliverList.builder(
                 itemBuilder: (context, index) {
